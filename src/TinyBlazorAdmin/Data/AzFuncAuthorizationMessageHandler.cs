@@ -25,9 +25,10 @@ namespace TinyBlazorAdmin.Data
         {
             var section = config.GetSection(nameof(UrlShortenerSecuredService));
             Endpoint = section.GetValue<string>(nameof(Endpoint));
+            AppIdUri = section.GetValue<string>(nameof(AppIdUri));
             ConfigureHandler(
                 new[] { Endpoint },
-                new[] { string.Concat(Endpoint, "user_impersonation") }
+                new[] { string.Concat(AppIdUri, "user_impersonation") }
             );
         }
     }
